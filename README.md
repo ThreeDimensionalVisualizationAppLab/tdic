@@ -6,7 +6,7 @@ The contents are mainly pictorial books and manuals.
 
 The purpose is to create more fun and easy-to-understand content than using 2D pictures.
 
-TDIC was developed to create a "3D aerospace pictorial book".
+TDIC was developed to create a "3D Aerospace Museum".
 
 
 
