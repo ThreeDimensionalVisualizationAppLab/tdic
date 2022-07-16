@@ -55,9 +55,9 @@ const useAnimationFrame = (callback = () => {}) => {
             <tbody>
                 <tr>
                     <td>Camera Position</td>
-                    <td>{cam_pos?.x}</td>
-                    <td>{cam_pos?.y}</td>
-                    <td>{cam_pos?.z}</td>
+                    <td>{cam_pos?.x.toFixed(4)}</td>
+                    <td>{cam_pos?.y.toFixed(4)}</td>
+                    <td>{cam_pos?.z.toFixed(4)}</td>
                     <td></td>
                 </tr>                        
                 <tr>
@@ -69,16 +69,16 @@ const useAnimationFrame = (callback = () => {}) => {
                 </tr>
                 <tr>
                     <td>Camera Quaternion</td>
-                    <td>{quaternion?.x}</td>
-                    <td>{quaternion?.y}</td>
-                    <td>{quaternion?.z}</td>
-                    <td>{quaternion?.w}</td>
+                    <td>{quaternion?.x.toFixed(4)}</td>
+                    <td>{quaternion?.y.toFixed(4)}</td>
+                    <td>{quaternion?.z.toFixed(4)}</td>
+                    <td>{quaternion?.w.toFixed(4)}</td>
                 </tr>
                 <tr>
                     <td>Orbit Control Target</td>
-                    <td>{target?.x}</td>
-                    <td>{target?.y}</td>
-                    <td>{target?.z}</td>
+                    <td>{target?.x.toFixed(4)}</td>
+                    <td>{target?.y.toFixed(4)}</td>
+                    <td>{target?.z.toFixed(4)}</td>
                     <td></td>
                 </tr>
             </tbody>
