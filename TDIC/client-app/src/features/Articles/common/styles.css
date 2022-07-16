@@ -1,0 +1,33 @@
+
+
+
+.model-annotation2 {
+  padding-top: 10px;
+  transform: translate3d(50%, 0, 0);
+  text-align: left;
+  background: #202035;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+
+.model-annotation {
+  margin-left: 15px;
+  margin-top: -10px;
+  padding-top: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  max-width: 200px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: .5em;
+  line-height: 1.2;
+  transition: opacity .5s;
+}
+
+
+.annotation_editmode {
+  outline-color: red;
+  background: rgba(0, 0, 255, 0.8);
+}
