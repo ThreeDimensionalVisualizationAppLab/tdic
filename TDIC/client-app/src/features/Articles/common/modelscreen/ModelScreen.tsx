@@ -1,7 +1,7 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { observer } from 'mobx-react-lite';
 import { useEffect, useState } from 'react';
-import { useStore } from '../../../app/stores/store';
+import { useStore } from '../../../../app/stores/store';
 import { OrbitControls } from '@react-three/drei';
 import THREE, { Color, Vector3 } from 'three';
 import LoadModel from './LoadModel';

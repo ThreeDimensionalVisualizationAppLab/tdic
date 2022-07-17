@@ -8,8 +8,8 @@ import PanelInstruction from "./PanelInstruction";
 
 
 import DebugDisplay from "../common/DebugDisplay";
-import ModelScreen from "../common/ModelScreen";
 import GoogleAd from "../../../app/common/utils/GoogleAd";
+import ModelScreen from "../common/modelscreen/ModelScreen";
 
 
 

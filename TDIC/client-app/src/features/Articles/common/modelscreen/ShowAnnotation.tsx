@@ -1,8 +1,8 @@
 import { Vector3 } from 'three';
-import { Annotation } from '../../../app/models/Annotation';
-import { AnnotationDisplay } from '../../../app/models/AnnotationDisplay';
 import { Html } from "@react-three/drei"
 import "./styles.css"
+import { Annotation } from '../../../../app/models/Annotation';
+import { AnnotationDisplay } from '../../../../app/models/AnnotationDisplay';
 
 
 interface Props {
@@ -23,10 +23,10 @@ const ShowAnnotation  = ({annotationMap, annotationDisplayMap, selectedAnnotatio
             <>
             <Html
               key={x.id_annotation} 
+              className={ x.id_annotation == selectedAnnotationId ? `model-annotation annotation_editmode` : `model-annotation` }
               position={new Vector3(x.pos_x+0.5,x.pos_y+0.5,x.pos_z+0.5)}
             >
               <div
-                className={ x.id_annotation == selectedAnnotationId ? `model-annotation2 annotation_editmode` : `model-annotation2` }
               >
                 <h4>{x.title}</h4>                
                 {annotationDisplayMap.get(x.id_annotation)?.is_display_description && <p>{x.description1}</p>}

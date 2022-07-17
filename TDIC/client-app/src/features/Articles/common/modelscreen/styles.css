@@ -1,29 +1,29 @@
 
 
 
-.model-annotation2 {
-  padding-top: 10px;
+.model-annotation {
+  margin-left: 0px;
+  margin-top: -10px;
   transform: translate3d(50%, 0, 0);
   text-align: left;
   background: #202035;
   color: white;
   padding: 10px 15px;
   border-radius: 5px;
+  max-width: 200px;
 }
 
 
-.model-annotation {
-  margin-left: 15px;
+.model-annotation2 {
+  margin-left: 0px;
   margin-top: -10px;
-  padding-top: 0.5em;
-  padding-left: 1em;
-  padding-right: 1em;
-  max-width: 200px;
+  transform: translate3d(50%, 0, 0);
+  text-align: left;
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
-  border-radius: .5em;
-  line-height: 1.2;
-  transition: opacity .5s;
+  padding: 10px 15px;
+  border-radius: 5px;
+  max-width: 200px;
 }
 
 
