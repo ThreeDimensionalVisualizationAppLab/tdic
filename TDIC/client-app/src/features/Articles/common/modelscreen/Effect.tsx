@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 import { useControls } from 'leva';
 import React, { useEffect, useState, VFC } from 'react';
 import THREE from 'three';

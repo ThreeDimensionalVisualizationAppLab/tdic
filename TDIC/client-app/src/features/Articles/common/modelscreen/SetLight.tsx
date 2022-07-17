@@ -2,7 +2,7 @@ import { extend, ReactThreeFiber, useLoader, useThree } from '@react-three/fiber
 import  { PointLight, TextureLoader, Vector3 } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import React from 'react';
-import { Light } from '../../../app/models/Light';
+import { Light } from '../../../../app/models/Light';
 
 
 import { Lensflare, LensflareElement } from 'three/examples/jsm/objects/Lensflare';

@@ -1,8 +1,8 @@
 import { Vector3 } from 'three';
-import { Annotation } from '../../../app/models/Annotation';
-import { AnnotationDisplay } from '../../../app/models/AnnotationDisplay';
 import { Html } from "@react-three/drei"
 import "./styles.css"
+import { Annotation } from '../../../../app/models/Annotation';
+import { AnnotationDisplay } from '../../../../app/models/AnnotationDisplay';
 
 
 interface Props {

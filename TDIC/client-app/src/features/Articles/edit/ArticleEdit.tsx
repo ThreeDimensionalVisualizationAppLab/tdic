@@ -10,13 +10,12 @@ import EdiaAnnotationDisplay from "./EditAnnotationDisplay";
 import EditAnnotation from "./EditAnnotation";
 import EdiaInstruction from "./EditInstruction";
 import EditView from "./EditView";
-//import ModelScreenEdit from "./ModelScreenEdit";
 import EditLightList from "./EditLightList";
 import EditLight from "./EditLight";
 import EditInstancepart from "./EditInstancepart";
 import EditArticleSub from "./EditArticleSub";
 import EditViewList from "./EditViewList";
-import ModelScreen from "../common/ModelScreen";
+import ModelScreen from "../common/modelscreen/ModelScreen";
 
 
 

@@ -1,8 +1,8 @@
 import { useFrame, useThree } from '@react-three/fiber';
-import { View } from '../../../app/models/view';
+import { View } from '../../../../app/models/view';
 import { Vector3 } from 'three';
 import { observer } from 'mobx-react-lite';
-import { useStore } from '../../../app/stores/store';
+import { useStore } from '../../../../app/stores/store';
 
 
 // ref https://codesandbox.io/s/draggable-mesh-rgn91?file=/src/App.tsx:900-940
