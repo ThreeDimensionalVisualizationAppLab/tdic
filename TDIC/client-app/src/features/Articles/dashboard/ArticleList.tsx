@@ -1,5 +1,4 @@
 import { observer } from "mobx-react-lite";
-import { Fragment } from "react";
 import { Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useStore } from "../../../app/stores/store";
@@ -23,8 +22,13 @@ export default observer( function ArticleList() {
                                 }
                                 <h3 className="h5 mb-1">{x.title}</h3>
                             </Link>
-                            { user && <Link to={`/articleedit/${x.id_article}`}>Edit</Link> }
                             <p  className="text-muted">{x.short_description}</p>
+                            { user && 
+                                <>
+                                    <Link className="btn btn-outline-primary" to={`/articleedit/${x.id_article}`}>Edit</Link>
+                                    <p>{x.status}</p>
+                                </>
+                             }
                         </div>
                     </div>
             )) }
