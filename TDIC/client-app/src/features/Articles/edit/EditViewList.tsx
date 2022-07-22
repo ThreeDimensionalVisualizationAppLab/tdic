@@ -52,9 +52,9 @@ export default observer( function EditViewList() {
                               <td>{x.id_view}</td>
                               <td>{x.id_view}</td>
                               <td>{x.title}</td>
-                              <td>{x.cam_pos_x}</td>
-                              <td>{x.cam_pos_y}</td>
-                              <td>{x.cam_pos_z}</td>
+                              <td>{x.cam_pos_x.toFixed(4)}</td>
+                              <td>{x.cam_pos_y.toFixed(4)}</td>
+                              <td>{x.cam_pos_z.toFixed(4)}</td>
                               <td>
                                 <button key={x.id_view}
                                         type = 'submit'
