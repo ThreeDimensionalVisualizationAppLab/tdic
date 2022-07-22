@@ -11,6 +11,7 @@ import UpdateCameraWork from './UpdateCameraWork';
 import SceneInfoCatcher from './SceneInfoCatcher';
 import { Effects } from './Effect';
 import { Lights } from './Lights';
+import GetSceneCapture from './GetSceneCapture';
 
 
 // ref https://codesandbox.io/s/draggable-mesh-rgn91?file=/src/App.tsx:900-940
@@ -102,6 +103,9 @@ export default observer( function ModelScreen({width, height}: Props) {
       //  <Effects />
       }
         {<SceneInfoCatcher />}
+        {
+          <GetSceneCapture />
+        }
       </Canvas>
     </div>
   );

@@ -10,6 +10,9 @@ export default class SceneInfoStore {
     target_camera_pos : Vector3 | undefined = undefined;
     mode_transport : boolean = false;
 
+    screen_shot_trigger : boolean = true;
+    screen_shot : string = "";
+
     selectedInstructionId =0;
 
     constructor(){
@@ -34,6 +37,15 @@ export default class SceneInfoStore {
 
     setModeTransport = (state:boolean) => {
         this.mode_transport = state;
+    }
+
+    setScreenShot = (screen_shot:string) => {
+        this.screen_shot = screen_shot;
+    }
+
+    setScreenShotTrigger = () => {
+        console.log("calledxxx");
+        this.screen_shot_trigger = !this.screen_shot_trigger;
     }
 
 

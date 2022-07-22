@@ -16,6 +16,7 @@ import EditInstancepart from "./EditInstancepart";
 import EditArticleSub from "./EditArticleSub";
 import EditViewList from "./EditViewList";
 import ModelScreen from "../common/modelscreen/ModelScreen";
+import EditEyecatch from "./EditEyecatch";
 
 
 
@@ -182,7 +183,7 @@ export default observer( function ArticleEdit() {
                                 <EditArticleSub /> 
                             </Tab>
                             <Tab eventKey="thumbnail" title="Thumbnail" >
-                                <p>abxxxxxx</p>
+                                <EditEyecatch />
                             </Tab>
                             <Tab eventKey="materials" title="Materials" >
                                 <p>abxxxxxx</p>
