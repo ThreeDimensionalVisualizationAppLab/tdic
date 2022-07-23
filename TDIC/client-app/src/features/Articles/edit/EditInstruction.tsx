@@ -43,39 +43,27 @@ export default observer( function EditInstruction(){
         id_article: Yup.number().required(),
         id_instruct: Yup.number().required(),
     });
-/*
-    useEffect(()=>{
-        loadStatuses().then(()=>{
-        //    console.log(statusRegistry);
-        });
-    }, []);*/
 
     useEffect(()=>{
-        //if(id) loadTask(Number(id)).then(task => setTask(task!))
         selectedInstruction && setInstruction(selectedInstruction);
     }, [selectedInstruction]);
 
     
     function handleFormSubmit(instruction:Instruction) {
-        //console.log(instruction);
+        
         if(instruction.id_instruct ==0 ){
             let newInstruction = {
                 ...instruction
             };
-            //console.log(newTask);
-            //console.log("create");
             createInstruction(newInstruction);
-//            createTask(newActivity).then(() => history.push(`/task/${newTask.Id}`))
         } else {
-            //console.log(instruction);
             updateInstruction(instruction);
-            //updateActivity(task).then(() => history.push(`/activities/${task.Id}`))
         }
     }
 
     
     function handleFormSubmitDelete(instruction:Instruction) {
-        //console.log("called del");
+        
         if(instruction){
             deleteInstruction(instruction);
         } else {
@@ -121,9 +109,6 @@ export default observer( function EditInstruction(){
             </Formik>
 
 
-
-
-            
 
             <Formik
                 validationSchema={validationSchemaDel}
