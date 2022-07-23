@@ -15,12 +15,13 @@ import { Vector3 } from 'three';
 export default observer( function EditAnnotation(){
     const history = useHistory();
     
+    const {articleStore} = useStore();
     const {annotationStore} = useStore();
     const {selectedAnnotation, editAnnotationInternal, updateAnnotation, createAnnotation, deleteAnnotation} = annotationStore;
 
 
     const [annotation, setAnnotation] = useState<Annotation>({
-        id_article: 0,
+        id_article: articleStore?.selectedArticle?.id_article!,
         id_annotation: 0,
 
         title: '',
