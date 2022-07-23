@@ -68,21 +68,13 @@ export default observer( function EditArticleSub(){
     const validationSchemaDel = Yup.object({
         id_article: Yup.number().required(),
     });
-    
-/*
-    const validationSchemaDel = Yup.object({
-        id: Yup.number()
-        .min(1, 'The minimum amount is one').required(),
-    });*/
 
     useEffect(()=>{
         loadStatuses().then(()=>{
-        //    console.log(statusRegistry);
         });
     }, []);
 
     useEffect(()=>{
-        //if(id) loadTask(Number(id)).then(task => setTask(task!))
         selectedArticle && setArticle(selectedArticle);
         loadStatuses();
     }, [selectedArticle]);
@@ -98,19 +90,14 @@ export default observer( function EditArticleSub(){
             let newObject = {
                 ...object
             };
-            //console.log(newTask);
             createArticle(newObject);
-            //createArticle(newActivity).then(() => history.push(`/task/${newTask.Id}`))
         } else {
-            //console.log(object);
             updateArticle(object);
-            //updateActivity(task).then(() => history.push(`/activities/${task.Id}`))
         }
     }
 
     
     function handleFormSubmitDelete(object:Article) {
-        //console.log("called del");
         if(object){
             deleteArticle(object);
         } else {
