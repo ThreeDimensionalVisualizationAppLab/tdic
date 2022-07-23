@@ -134,7 +134,6 @@ export default observer( function EditLight(){
                         
                         
                         <button disabled={!isValid || !dirty || isSubmitting} type = 'submit' className='btn btn-primary'>Submit</button>
-                        <Link to={`/article/${light.id_article}`}>Cancel</Link>
                     </Form>
                 )}
 

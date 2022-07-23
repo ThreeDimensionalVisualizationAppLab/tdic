@@ -102,7 +102,6 @@ export default observer( function EditInstruction(){
                         
                         
                         <button disabled={!isValid || !dirty || isSubmitting} type = 'submit' className='btn btn-primary'>Submit</button>
-                        <Link to={`/article/${instruction.id_article}`}>Cancel</Link>
                     </Form>
                 )}
 

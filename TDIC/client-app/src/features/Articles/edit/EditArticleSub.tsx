@@ -169,7 +169,6 @@ export default observer( function EditArticleSub(){
                         
                         
                         <button disabled={!isValid || !dirty || isSubmitting} type = 'submit' className='btn btn-primary'>Submit</button>
-                        <Link to={`/article/${article.id_article}`}>Cancel</Link>
                     </Form>
                 )}
 
