@@ -13,7 +13,7 @@ export default observer( function AttachmentFileList() {
                 Array.from(AttachmentfileRegistry.values()).map(x=>(
                     <Col>
                         <Card key={x.id_file} style={{ width: '24rem',  height: '30rem'}} className="article-dashboard-card" >
-                            <Link to={`/article/${x.id_file}`}>
+                            <Link to={`/attachmentfile/${x.id_file}`}>
                                 <Card.Img variant="top" src={process.env.REACT_APP_API_URL + `/attachmentfiles/file/${x.id_file}`} />
                             </Link>
                             <Card.Body>
