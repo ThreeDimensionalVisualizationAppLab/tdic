@@ -13,12 +13,13 @@ import { Light } from '../../../app/models/Light';
 export default observer( function EditLight(){
     const history = useHistory();
     
+    const {articleStore} = useStore();
     const {lightStore} = useStore();
     const {selectedLight, createLight, updateLight, deleteLight} = lightStore;
 
 
     const [light, setLight] = useState<Light>({
-        id_article: 0,
+        id_article: articleStore?.selectedArticle?.id_article!,
         id_light: 0,
         light_type: '',
         title:  '',
@@ -53,15 +54,8 @@ export default observer( function EditLight(){
         id_article: Yup.number().required(),
         id_light: Yup.number().required(),
     });
-/*
-    useEffect(()=>{
-        loadStatuses().then(()=>{
-        //    console.log(statusRegistry);
-        });
-    }, []);*/
 
     useEffect(()=>{
-        //if(id) loadTask(Number(id)).then(task => setTask(task!))
         selectedLight && setLight(selectedLight);
     }, [selectedLight]);
 
@@ -73,11 +67,8 @@ export default observer( function EditLight(){
             };
             console.log(newLight);
             createLight(newLight);
-//            createTask(newActivity).then(() => history.push(`/task/${newTask.Id}`))
         } else {
-            //console.log(light);
             updateLight(light);
-            //updateActivity(task).then(() => history.push(`/activities/${task.Id}`))
         }
     }
 
