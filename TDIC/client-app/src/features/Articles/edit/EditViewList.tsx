@@ -72,7 +72,3 @@ export default observer( function EditViewList() {
       </div>
     )
 });
-
-
-
-//export default EdiaAnnotationDisplay;
