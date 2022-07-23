@@ -13,13 +13,14 @@ import { Col, Row } from 'react-bootstrap';
 export default observer( function EditView(){
     const history = useHistory();
     
+    const {articleStore} = useStore();
     const {viewStore} = useStore();
     const {selectedView, updateView, createView, deleteView} = viewStore;
 
     const {sceneInfoStore : {camera_pos, quaternion, orbit_target}} = useStore();
 
     const [view, setView] = useState<View>({
-        id_article: 0,
+        id_article: articleStore?.selectedArticle?.id_article!,
         id_view: 0,
         title: '',
         cam_pos_x: 0,
