@@ -4,11 +4,18 @@ import { useStore } from "../../../app/stores/store";
 
 export default observer( function EditEyecatch() {
 
+
+    
+    const {articleStore} = useStore();
     const {sceneInfoStore} = useStore();
 
 
-    const handleInputChangeInstruction=() => {
+    const handleTakeCapture=() => {
         sceneInfoStore.setScreenShotTrigger();
+    }
+
+    const handleSubmitCapture=() => {
+        sceneInfoStore.createEyeCatch(articleStore?.selectedArticle?.id_article!);
     }
 
       
@@ -19,14 +26,19 @@ export default observer( function EditEyecatch() {
                 <button 
                     type = 'submit'
                     className={"btn btn-outline-primary"}
-                    onClick={()=>{handleInputChangeInstruction()}} 
+                    onClick={()=>{handleTakeCapture()}} 
                 >
                     {"Capture"}
                 </button>
+                <button 
+                    type = 'submit'
+                    className={"btn btn-primary"}
+                    onClick={()=>{handleSubmitCapture()}} 
+                >
+                    {"Save"}
+                </button>
             </div>
         </>
-
-
     )
   
 })
