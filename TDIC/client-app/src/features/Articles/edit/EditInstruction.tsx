@@ -14,12 +14,13 @@ import { Col, Row } from 'react-bootstrap';
 export default observer( function EditInstruction(){
     const history = useHistory();
     
+    const {articleStore} = useStore();
     const {instructionStore} = useStore();
     const {selectedInstruction, updateInstruction, deleteInstruction, createInstruction} = instructionStore;
 
 
     const [instruction, setInstruction] = useState<Instruction>({
-        id_article: 0,
+        id_article: articleStore?.selectedArticle?.id_article!,
         id_instruct: 0,
         id_view: 0,
         title: '',
@@ -42,39 +43,27 @@ export default observer( function EditInstruction(){
         id_article: Yup.number().required(),
         id_instruct: Yup.number().required(),
     });
-/*
-    useEffect(()=>{
-        loadStatuses().then(()=>{
-        //    console.log(statusRegistry);
-        });
-    }, []);*/
 
     useEffect(()=>{
-        //if(id) loadTask(Number(id)).then(task => setTask(task!))
         selectedInstruction && setInstruction(selectedInstruction);
     }, [selectedInstruction]);
 
     
     function handleFormSubmit(instruction:Instruction) {
-        //console.log(instruction);
+        
         if(instruction.id_instruct ==0 ){
             let newInstruction = {
                 ...instruction
             };
-            //console.log(newTask);
-            //console.log("create");
             createInstruction(newInstruction);
-//            createTask(newActivity).then(() => history.push(`/task/${newTask.Id}`))
         } else {
-            //console.log(instruction);
             updateInstruction(instruction);
-            //updateActivity(task).then(() => history.push(`/activities/${task.Id}`))
         }
     }
 
     
     function handleFormSubmitDelete(instruction:Instruction) {
-        //console.log("called del");
+        
         if(instruction){
             deleteInstruction(instruction);
         } else {
@@ -108,21 +97,17 @@ export default observer( function EditInstruction(){
                         </Row>
                         
                         <Row>
-                            <Col ><TextAreaGeneral label='Short Description' placeholder='shortDescription' name='short_description' rows={15}   /></Col>
+                            <Col ><TextAreaGeneral label='MEMO' placeholder='memo' name='memo' rows={15}   /></Col>
                         </Row>
                         
                         
                         <button disabled={!isValid || !dirty || isSubmitting} type = 'submit' className='btn btn-primary'>Submit</button>
-                        <Link to={`/article/${instruction.id_article}`}>Cancel</Link>
                     </Form>
                 )}
 
             </Formik>
 
 
-
-
-            
 
             <Formik
                 validationSchema={validationSchemaDel}

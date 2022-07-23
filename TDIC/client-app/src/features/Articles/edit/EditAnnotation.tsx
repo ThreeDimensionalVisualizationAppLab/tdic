@@ -15,12 +15,13 @@ import { Vector3 } from 'three';
 export default observer( function EditAnnotation(){
     const history = useHistory();
     
+    const {articleStore} = useStore();
     const {annotationStore} = useStore();
     const {selectedAnnotation, editAnnotationInternal, updateAnnotation, createAnnotation, deleteAnnotation} = annotationStore;
 
 
     const [annotation, setAnnotation] = useState<Annotation>({
-        id_article: 0,
+        id_article: articleStore?.selectedArticle?.id_article!,
         id_annotation: 0,
 
         title: '',
@@ -44,16 +45,8 @@ export default observer( function EditAnnotation(){
         id_article: Yup.number().required(),
         id_annotation: Yup.number().required(),
     });
-    
-/*
-    useEffect(()=>{
-        loadStatuses().then(()=>{
-        //    console.log(statusRegistry);
-        });
-    }, []);*/
 
     useEffect(()=>{
-        //if(id) loadTask(Number(id)).then(task => setTask(task!))
         selectedAnnotation && setAnnotation(selectedAnnotation);
     }, [selectedAnnotation]);
 
@@ -65,11 +58,8 @@ export default observer( function EditAnnotation(){
             };
             console.log(newAnnotation);
             createAnnotation(newAnnotation);
-//            createTask(newActivity).then(() => history.push(`/task/${newTask.Id}`))
         } else {
-            //console.log(annotation);
             updateAnnotation(annotation);
-            //updateActivity(task).then(() => history.push(`/activities/${task.Id}`))
         }
     }
 
@@ -77,7 +67,6 @@ export default observer( function EditAnnotation(){
 
     
     function handleFormSubmitDelete(object:Annotation) {
-        //console.log("called del");
         if(object){
             deleteAnnotation(object);
         } else {
