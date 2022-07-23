@@ -21,3 +21,8 @@ export interface Attachmentfile {
     target_article_id: string;
 
 }
+
+export interface AttachmentfileEyecatchDtO {
+    id_article: number;
+    imgfilebin: string;
+}

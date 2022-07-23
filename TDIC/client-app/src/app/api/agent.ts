@@ -5,7 +5,7 @@ import { history } from "../..";
 import { Annotation } from "../models/Annotation";
 import { AnnotationDisplay } from "../models/AnnotationDisplay";
 import { Article } from "../models/article";
-import { Attachmentfile } from "../models/attachmentfile";
+import { Attachmentfile, AttachmentfileEyecatchDtO } from "../models/attachmentfile";
 import { Instancepart } from "../models/Instancepart";
 import { Instruction } from "../models/instruction";
 import { Light } from "../models/Light";
@@ -83,6 +83,7 @@ const Modelfiles = {
 const Attachmentfiles = {
     list: () => requests.get<Attachmentfile[]>('/attachmentfiles/index'),
     details:(id:number) => requests.get<Attachmentfile>(`/attachmentfiles/${id}`),
+    createeyecatch:(image : AttachmentfileEyecatchDtO) => axios.post<void>(`/attachmentfiles/createeyecatch`,image),
 }
 
 const Articles = {

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Application.AttachmentFile;
 using TDIC.Controllers;
+using TDIC.DTOs;
 
 
 
@@ -38,6 +39,11 @@ namespace API.Controllers
 
 
             return File(det.Value.file_data, det.Value.type_data, det.Value.name);
+        }
+
+        [HttpPost("createeyecatch")]
+        public async Task<IActionResult> CreateEyecatch([FromBody] AttachmentfileEyecatchDtO image){
+            return HandleResult(await Mediator.Send(new CreateEyecatch.Command{ id_article=image.id_article, imgfilebin=image.imgfilebin }));
         }
 
         // [HttpGet("filedata/{id}")]

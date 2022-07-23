@@ -1,5 +1,7 @@
 import {  makeAutoObservable, runInAction } from "mobx";
 import { Quaternion, Vector3 } from 'three';
+import agent from "../api/agent";
+import { AttachmentfileEyecatchDtO } from "../models/attachmentfile";
 
 export default class SceneInfoStore {
     camera_pos : Vector3 | undefined = undefined;
@@ -36,16 +38,29 @@ export default class SceneInfoStore {
     }
 
     setModeTransport = (state:boolean) => {
-        this.mode_transport = state;
+        runInAction(() => {
+            this.mode_transport = state;
+        })
     }
 
     setScreenShot = (screen_shot:string) => {
-        this.screen_shot = screen_shot;
+        runInAction(() => {
+            this.screen_shot = screen_shot;
+        })
     }
 
     setScreenShotTrigger = () => {
-        console.log("calledxxx");
-        this.screen_shot_trigger = !this.screen_shot_trigger;
+        runInAction(() => {
+            this.screen_shot_trigger = !this.screen_shot_trigger;
+        })
+    }
+    
+    createEyeCatch = async (id_article:number) => {        
+        try {
+            await agent.Attachmentfiles.createeyecatch({id_article: id_article, imgfilebin: this.screen_shot});            
+        }catch (error) {
+            console.log(error);
+        }
     }
 
 
