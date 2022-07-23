@@ -14,12 +14,13 @@ import { Col, Row } from 'react-bootstrap';
 export default observer( function EditInstruction(){
     const history = useHistory();
     
+    const {articleStore} = useStore();
     const {instructionStore} = useStore();
     const {selectedInstruction, updateInstruction, deleteInstruction, createInstruction} = instructionStore;
 
 
     const [instruction, setInstruction] = useState<Instruction>({
-        id_article: 0,
+        id_article: articleStore?.selectedArticle?.id_article!,
         id_instruct: 0,
         id_view: 0,
         title: '',
@@ -108,7 +109,7 @@ export default observer( function EditInstruction(){
                         </Row>
                         
                         <Row>
-                            <Col ><TextAreaGeneral label='Short Description' placeholder='shortDescription' name='short_description' rows={15}   /></Col>
+                            <Col ><TextAreaGeneral label='MEMO' placeholder='memo' name='memo' rows={15}   /></Col>
                         </Row>
                         
                         
