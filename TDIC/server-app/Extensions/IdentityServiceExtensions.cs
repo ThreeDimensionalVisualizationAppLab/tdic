@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using TDIC.Models.EDM;
 //using Persistence;
 
 namespace TDIC.Extensions
@@ -19,7 +20,7 @@ namespace TDIC.Extensions
             {
                 opt.Password.RequireNonAlphanumeric = false;
             })
-            .AddEntityFrameworkStores<TDIC.Data.ApplicationDbContext>()
+            .AddEntityFrameworkStores<db_data_coreContext>()
             .AddSignInManager<SignInManager<AppUser>>();
             
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));
