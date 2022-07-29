@@ -10,6 +10,7 @@ import PanelInstruction from "./PanelInstruction";
 import DebugDisplay from "../common/DebugDisplay";
 import GoogleAd from "../../../app/common/utils/GoogleAd";
 import ModelScreen from "../common/modelscreen/ModelScreen";
+import { TwitterCardSet } from "../../../app/common/utils/TwitterCardSet";
 
 
 
@@ -94,7 +95,11 @@ export default observer( function ArticleDetails() {
     useEffect(()=> {
 
         if(id) {
-            loadArticle(Number(id)).then(x=>{x && loadInstanceparts(x?.id_assy)});
+            loadArticle(Number(id)).then(x=>{
+                x && loadInstanceparts(x?.id_assy);
+                //x && TwitterCardSet("summary_large_image","tdapbs",article?.title!,article?.short_description!, process.env.REACT_APP_API_URL + `/attachmentfiles/file/${x.id_attachment_for_eye_catch!}`);
+            });
+
             loadInstructions(Number(id));
             loadViews(Number(id));
             loadAnnotations(Number(id));
