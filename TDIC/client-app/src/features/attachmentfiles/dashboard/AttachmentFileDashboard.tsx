@@ -14,7 +14,7 @@ export default observer(function AttachmentFileDashboard() {
     },[AttachmentfileRegistry.size, loadAttachmentfiles])
   
   
-    if(attachmentfileStore.loadingInitial) return <LoadingComponent content='Loading attachments...' />
+    if(attachmentfileStore.loading) return <LoadingComponent content='Loading attachments...' />
 
 
 
