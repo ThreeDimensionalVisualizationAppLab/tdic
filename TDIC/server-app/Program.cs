@@ -1,4 +1,4 @@
-using TDIC.Data;
+//using TDIC.Data;
 using TDIC.Domain;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TDIC.Models.EDM;
 
 namespace TDIC
 {
@@ -29,7 +30,7 @@ namespace TDIC
 
             try
             {
-                var context = services.GetRequiredService<ApplicationDbContext>();
+                var context = services.GetRequiredService<db_data_coreContext>();
                 var userManager = services.GetRequiredService<UserManager<AppUser>>();
                 //await context.Database.MigrateAsync();
                 //await Seed.SeedData(context, userManager);

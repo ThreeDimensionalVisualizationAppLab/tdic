@@ -17,6 +17,7 @@ namespace TDIC.Models.EDM
         public double pos_x { get; set; }
         public double pos_y { get; set; }
         public double pos_z { get; set; }
+        public double scale { get; set; }
 
         public virtual t_assembly id_assyNavigation { get; set; }
         public virtual t_part id_partNavigation { get; set; }
