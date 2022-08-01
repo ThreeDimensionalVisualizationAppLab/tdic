@@ -23,6 +23,7 @@ import Privacy from '../../features/Privacy/Privacy';
 import { initializeGA, useTracking } from '../common/utils/GoogleAnalyticsUtil';
 import { GoogleAdHead } from '../common/utils/GoogleAdHead';
 import AttachmentFileDetails from '../../features/attachmentfiles/details/AttachmentFileDetails';
+import ModelfileCreate from '../../features/Modelfiles/create/ModelfileCreate';
 
 function App() {
   
@@ -76,6 +77,7 @@ function App() {
                 <Route path = '/attachmentfile/:id' component={AttachmentFileDetails} />
                 <Route path = '/modelfiles' component={ModelfileDashboard} />
                 <Route path = '/modelfile/:id' component={ModelfileDetails} />
+                <Route path = '/modelfilecreate' component={ModelfileCreate} />
                 <Route path = '/modelfileupload/:id' component={ModelfileUpload} />
                 <Route path='/errors' component={TestErrors} />
                 <Route path='/server-error' component={ServerError} />

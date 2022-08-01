@@ -1,3 +1,63 @@
+//import './App.css';
+import React, {useState} from 'react';
+import axios from 'axios';
+
+function ModelfileCreate() {
+
+  const [file, setFile] = useState<File>()
+
+//  const abc : File;
+//  abc.name
+
+  function handleChange(event: any) {
+    console.log(event);
+    if (event.target.files) {
+        setFile(event.target.files[0]);
+
+    }
+  }
+  
+  function handleSubmit(event: any) {
+    event.preventDefault()
+//    const url = 'https://localhost:5001/api/modelfiles/uploadfile';
+    const url = process.env.REACT_APP_API_URL + '/modelfiles/uploadfile';
+    const formData = new FormData();
+
+    if(file){
+        
+        formData.append('file', file);
+//        formData.append('FileName', file.name);
+
+//        console.log(file.name);
+        const config = {
+        headers: {
+            'content-type': 'multipart/form-data',
+        },
+        };
+//        axios.post(url, formData, config).then((response) => {
+        axios.post(url, formData).then((response) => {
+        console.log(response.data);
+        });
+    }
+
+  }
+
+  return (
+    <div className="App">
+        <form onSubmit={handleSubmit}>
+          <h1>React File Upload</h1>
+          <input type="file" onChange={handleChange}/>
+          <button type="submit">Upload</button>
+        </form>
+    </div>
+  );
+}
+
+export default ModelfileCreate;
+
+
+/*
+
 import { Formik } from "formik";
 import { observer } from "mobx-react-lite";
 import React, { useEffect, useState } from "react";
@@ -56,3 +116,6 @@ export default observer( function ModelfileCreate() {
         </>
     )
 })
+
+
+*/
