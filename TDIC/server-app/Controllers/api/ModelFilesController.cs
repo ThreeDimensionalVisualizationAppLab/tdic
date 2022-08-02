@@ -31,7 +31,7 @@ namespace API.Controllers
         }
 
         [HttpGet("details/{id}")]
-        public async Task<ActionResult> GetActivity(long id)
+        public async Task<ActionResult> GetDetails(long id)
         {
             return HandleResult(await Mediator.Send(new Details.Query{ID = id}));
         }
@@ -45,7 +45,6 @@ namespace API.Controllers
 
             return File(det.Value.file_data, det.Value.type_data, det.Value.file_name);
         }
-        [AllowAnonymous]
 
         [HttpPost("uploadfile")]
         public async Task<ActionResult> UploadFile([FromForm] IFormFile file)
@@ -73,6 +72,12 @@ namespace API.Controllers
 
 
             return HandleResult(await Mediator.Send(new Upload.Command{ Part = t_part}));
+        }
+
+
+        [HttpPost("update")]
+        public async Task<IActionResult> Update([FromBody] t_part t_part){
+            return HandleResult(await Mediator.Send(new Edit.Command{ t_part = t_part}));
         }
 
         public static byte[] GetByteArrayFromStream(Stream sm)

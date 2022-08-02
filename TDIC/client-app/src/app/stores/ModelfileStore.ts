@@ -54,7 +54,48 @@ export default class ModelfileStore {
             this.setLoaingInitial(false);
         }
     }
+    
 
+    loadModelfile = async (id:number) => {
+        this.loading = true;
+        let object:Modelfile;
+        console.log("called loadmodelfiles");
+        try {
+            console.log("called loadmodelfiles");
+            object = await agent.Modelfiles.details(id);
+            this.setModelfile(object);
+            runInAction(()=>{
+                this.selectedModelfile = object;
+            })
+            this.setLoaing(false);
+            return object;
+        } catch (error) {
+            console.log(error);
+            this.setLoaing(false);
+        }
+        
+    }
+
+    
+    updateModelfile = async (object: Modelfile) => {
+        this.loading = true;
+        
+        try {
+            await agent.Modelfiles.update(object);
+            runInAction(() => {
+                this.ModelfileRegistry.set(object.id_part, object);
+                this.selectedModelfile = object;
+//                this.editMode=false;
+                this.loading = false;
+            })
+            
+        }catch (error) {
+            console.log(error);
+            runInAction(() => {
+                this.loading = false;
+            })
+        }
+    }
     
     setSelectedModelfile = async (id_part:number) => {
         let modelfile = this.getModelfile(id_part);
@@ -79,6 +120,7 @@ export default class ModelfileStore {
             }
         }
     }
+    
 
     private setModelfile = (modelfile : Modelfile) => {
         this.ModelfileRegistry.set(modelfile.id_part,modelfile);

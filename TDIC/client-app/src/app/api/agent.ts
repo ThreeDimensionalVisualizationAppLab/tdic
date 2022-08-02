@@ -78,7 +78,8 @@ const requests = {
 const Modelfiles = {
     list: () => requests.get<Modelfile[]>('/modelfiles/index'),
     details:(id:number) => requests.get<Modelfile>(`/modelfiles/details/${id}`),
-    fileupload: (formData:FormData) => axios.post('',formData)
+    update: (modelfile: Modelfile) => axios.post<void>(`/modelfiles/update`, modelfile),
+    fileupload: (formData:FormData) => axios.post('/modelfiles/uploadfile',formData)
 }
 
 const Attachmentfiles = {

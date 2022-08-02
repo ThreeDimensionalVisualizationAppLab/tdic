@@ -1,6 +1,7 @@
 //import './App.css';
 import React, {useState} from 'react';
 import axios from 'axios';
+import agent from '../../../app/api/agent';
 
 function ModelfileCreate() {
 
@@ -26,6 +27,12 @@ function ModelfileCreate() {
     if(file){
         
         formData.append('file', file);
+        
+        agent.Modelfiles.fileupload(formData).then((response) => {
+
+        });
+
+        /*
 //        formData.append('FileName', file.name);
 
 //        console.log(file.name);
@@ -35,9 +42,10 @@ function ModelfileCreate() {
         },
         };
 //        axios.post(url, formData, config).then((response) => {
-        axios.post(url, formData).then((response) => {
-        console.log(response.data);
-        });
+//       axios.post(url, formData).then((response) => {
+//        console.log(response.data);
+//        });
+*/
     }
 
   }
