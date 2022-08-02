@@ -87,6 +87,7 @@ const Attachmentfiles = {
     list: () => requests.get<Attachmentfile[]>('/attachmentfiles/index'),
     details:(id:number) => requests.get<Attachmentfile>(`/attachmentfiles/details/${id}`),
     createeyecatch:(image : AttachmentfileEyecatchDtO) => axios.post<void>(`/attachmentfiles/createeyecatch`,image),
+    fileupload: (formData:FormData) => axios.post('/attachmentfiles/uploadfile',formData),
     delete:(id:number) => axios.post<void>(`/attachmentfiles/delete/${id}`),
 }
 

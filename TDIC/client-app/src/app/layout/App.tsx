@@ -25,6 +25,7 @@ import { GoogleAdHead } from '../common/utils/GoogleAdHead';
 import AttachmentFileDetails from '../../features/attachmentfiles/details/AttachmentFileDetails';
 import ModelfileCreate from '../../features/Modelfiles/create/ModelfileCreate';
 import ModelfileEdit from '../../features/Modelfiles/edit/ModelfileEdit';
+import AttachmentfileUpload from '../../features/attachmentfiles/upload/AttachmentfileUpload';
 
 function App() {
   
@@ -76,6 +77,7 @@ function App() {
 
                 <Route path = '/attachmentfiles' component={AttachmentFileDashboard} />
                 <Route path = '/attachmentfile/:id' component={AttachmentFileDetails} />
+                <Route path = '/attachmentfileupload' component={AttachmentfileUpload} />
                 <Route path = '/modelfiles' component={ModelfileDashboard} />
                 <Route path = '/modelfile/:id' component={ModelfileDetails} />
                 <Route path = '/modelfilecreate' component={ModelfileCreate} />
