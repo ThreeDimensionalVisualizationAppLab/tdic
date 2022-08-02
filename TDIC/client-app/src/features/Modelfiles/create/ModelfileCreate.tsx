@@ -1,14 +1,10 @@
-//import './App.css';
 import React, {useState} from 'react';
-import axios from 'axios';
 import agent from '../../../app/api/agent';
 
 function ModelfileCreate() {
 
   const [file, setFile] = useState<File>()
 
-//  const abc : File;
-//  abc.name
 
   function handleChange(event: any) {
     console.log(event);
@@ -20,8 +16,6 @@ function ModelfileCreate() {
   
   function handleSubmit(event: any) {
     event.preventDefault()
-//    const url = 'https://localhost:5001/api/modelfiles/uploadfile';
-    const url = process.env.REACT_APP_API_URL + '/modelfiles/uploadfile';
     const formData = new FormData();
 
     if(file){
@@ -32,20 +26,6 @@ function ModelfileCreate() {
 
         });
 
-        /*
-//        formData.append('FileName', file.name);
-
-//        console.log(file.name);
-        const config = {
-        headers: {
-            'content-type': 'multipart/form-data',
-        },
-        };
-//        axios.post(url, formData, config).then((response) => {
-//       axios.post(url, formData).then((response) => {
-//        console.log(response.data);
-//        });
-*/
     }
 
   }
