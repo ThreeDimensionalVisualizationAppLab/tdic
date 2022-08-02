@@ -96,6 +96,28 @@ export default class ModelfileStore {
             })
         }
     }
+
+    
+    
+
+    
+    deleteModelfile = async (object: Modelfile) => {
+        this.loading = true;
+        
+        try {
+            await agent.Modelfiles.delete(object.id_part);
+            runInAction(() => {
+                this.ModelfileRegistry.delete(object.id_part);
+                this.loading = false;
+            })
+            
+        }catch (error) {
+            console.log(error);
+            runInAction(() => {
+                this.loading = false;
+            })
+        }
+    }    
     
     setSelectedModelfile = async (id_part:number) => {
         let modelfile = this.getModelfile(id_part);

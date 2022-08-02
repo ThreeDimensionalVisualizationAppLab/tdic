@@ -46,6 +46,10 @@ namespace API.Controllers
             return File(det.Value.file_data, det.Value.type_data, det.Value.file_name);
         }
 
+
+
+
+
         [HttpPost("uploadfile")]
         public async Task<ActionResult> UploadFile([FromForm] IFormFile file)
         {
@@ -80,6 +84,13 @@ namespace API.Controllers
             return HandleResult(await Mediator.Send(new Edit.Command{ t_part = t_part}));
         }
 
+        
+        [HttpPost("delete/{id}")]
+        public async Task<IActionResult> Delete(long id)
+        {
+            return HandleResult(await Mediator.Send(new Delete.Command{id=id}));
+        }
+        
         public static byte[] GetByteArrayFromStream(Stream sm)
         {
             using (MemoryStream ms = new MemoryStream())

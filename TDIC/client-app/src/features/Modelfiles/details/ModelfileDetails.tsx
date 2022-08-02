@@ -118,9 +118,7 @@ export default observer( function ModelfileDetails() {
 
                         <div>
                             <Link to="/modelfiles">Return Index</Link> |
-                            {<Link to={`/modelfileedit/${id}`}>Edit</Link>} |
-                            {<Link to={`/ContentsEdit/ModelFileDelete/${id}`}>Delete</Link>}
-                            | <Link to={`/modelfileupload/${id}`}>Uploads</Link> 
+                            <Link to={`/modelfileedit/${id}`}>Edit</Link>
                         </div>
 
                     </div>

@@ -13,7 +13,7 @@ import ModelfileViewer from "../common/ModelfileViewer";
 export default observer( function ModelfileEdit(){
     const history = useHistory();
     const { modelfileStore} = useStore();
-    const { loadModelfile, updateModelfile, loading } = modelfileStore;
+    const { loadModelfile, updateModelfile, deleteModelfile, loading } = modelfileStore;
 
     const {id} = useParams<{id: string}>();
 
@@ -47,7 +47,7 @@ export default observer( function ModelfileEdit(){
     
 
     const validationSchemaDel = Yup.object({
-        id: Yup.number()
+        id_part: Yup.number()
         .min(1, 'The minimum amount is one').required(),
     });
 
@@ -78,9 +78,10 @@ export default observer( function ModelfileEdit(){
 
     
     function handleFormSubmitDelete(modelfile:Modelfile) {
-        //console.log("called");
+        console.log("called modelfile delete");
         if(modelfile.id_part ===0 ){
         } else {
+            deleteModelfile(modelfile);
             //deleteTask(task.id);
         }
     }
@@ -91,16 +92,11 @@ export default observer( function ModelfileEdit(){
         <div>         
             <h3>Model Edit</h3> 
 
-
-            
             <div className="row" id="model_screen" style={{ width: 640, height : 360 }}>
                 {
                     <ModelfileViewer id_part={Number(id)}/>
                 }
             </div>
-
-
-
 
             <Formik
                 validationSchema={validationSchema}
@@ -132,11 +128,7 @@ export default observer( function ModelfileEdit(){
                             <Col xs={6}><TextInputGeneral label='Memo' name='memo' placeholder='memo' /></Col>
                         </Row>
                         
-                        
-                        
-                        
-                        
-                                                
+                              
                         <button disabled={!isValid || !dirty || isSubmitting} 
                             type = 'submit' >Submit</button>
                     </Form>
@@ -156,6 +148,13 @@ export default observer( function ModelfileEdit(){
                     </Form>
                 )}
             </Formik>
+            
+            <hr />
+
+            <div>
+                <Link to="/modelfiles">Return Index</Link> |
+                <Link to={`/modelfile/${id}`}>Details</Link>
+            </div>
         </div>
     )
 })

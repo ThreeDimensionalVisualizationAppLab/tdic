@@ -79,13 +79,15 @@ const Modelfiles = {
     list: () => requests.get<Modelfile[]>('/modelfiles/index'),
     details:(id:number) => requests.get<Modelfile>(`/modelfiles/details/${id}`),
     update: (modelfile: Modelfile) => axios.post<void>(`/modelfiles/update`, modelfile),
-    fileupload: (formData:FormData) => axios.post('/modelfiles/uploadfile',formData)
+    fileupload: (formData:FormData) => axios.post('/modelfiles/uploadfile',formData),
+    delete:(id:number) => axios.post<void>(`/modelfiles/delete/${id}`),
 }
 
 const Attachmentfiles = {
     list: () => requests.get<Attachmentfile[]>('/attachmentfiles/index'),
     details:(id:number) => requests.get<Attachmentfile>(`/attachmentfiles/details/${id}`),
     createeyecatch:(image : AttachmentfileEyecatchDtO) => axios.post<void>(`/attachmentfiles/createeyecatch`,image),
+    delete:(id:number) => axios.post<void>(`/attachmentfiles/delete/${id}`),
 }
 
 const Articles = {
